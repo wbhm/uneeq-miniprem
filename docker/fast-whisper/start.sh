@@ -3,7 +3,6 @@ set -e  # Exit immediately if a command exits with a non-zero status
 
 # Set up environment variables
 export PYTHONPATH=/app
-export CUDA_VISIBLE_DEVICES=all
 
 echo "Checking for model..."
 # Download the model if it doesn't exist

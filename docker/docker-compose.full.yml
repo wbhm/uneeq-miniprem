@@ -168,7 +168,7 @@ services:
       - "4317:4317"    # OTLP gRPC collector
       - "9091:9090"    # Prometheus metrics (9091 to avoid conflict with Prometheus on 9090)
     environment:
-      - PHOENIX_ENABLE_PROMETHEUS=true
+      - PHOENIX_ENABLE_PROMETHEUS=false  # host networking: 9090 collides with Prometheus, port mapping is ignored
       - PHOENIX_WORKING_DIR=/phoenix
       - PHOENIX_PORT=6006
     volumes:
@@ -213,7 +213,7 @@ services:
       - PORT=3000
       - DATABASE_TYPE=sqlite
       - DATABASE_PATH=/usr/src/.flowise/database.sqlite
-      - NODE_ENV=production
+      - SECURE_COOKIES=false
       - LOG_LEVEL=debug
       # File upload limit
       - FLOWISE_FILE_SIZE_LIMIT=50mb
