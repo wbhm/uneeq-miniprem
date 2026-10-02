@@ -28,6 +28,7 @@ FROM nvidia/cuda:12.8.0-runtime-ubuntu22.04
 # Install runtime dependencies (removed unused portaudio, pyaudio, x11-apps, xclip)
 # Note: CUDA keyring already included in base image
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
     python3 \
     python3-pip \
     libcudnn9-cuda-12 \
