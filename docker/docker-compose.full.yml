@@ -309,6 +309,9 @@ services:
   # === FIFTH TIER: Renny (comes last) ===
   renny:
     container_name: renny
+    # Kept out of the default pool: the remote workstation renders this persona.
+    # Start explicitly with: docker compose --profile renderer up -d renny
+    profiles: ["renderer"]
     command: ["/Game/Live_Levels/BlankScene", "-RenderOffScreen", "-ResX=1920", "-ResY=1080", "-NoTextureStreaming"]
     entrypoint: ["/opt/renny/renny-entrypoint.sh"]
     env_file:
